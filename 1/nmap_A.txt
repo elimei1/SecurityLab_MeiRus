@@ -1,0 +1,213 @@
+# Nmap 7.95 scan initiated Sun Mar  8 20:43:22 2026 as: /usr/lib/nmap/nmap -A -T4 -oN nmap_A 10.0.10.10 10.0.10.30 10.0.20.10 10.0.30.1
+Nmap scan report for 10.0.10.10
+Host is up (0.00042s latency).
+Not shown: 990 closed tcp ports (reset)
+PORT      STATE SERVICE        VERSION
+135/tcp   open  msrpc          Microsoft Windows RPC
+139/tcp   open  netbios-ssn    Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds   Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server?
+|_ssl-date: 2026-03-08T19:45:00+00:00; 0s from scanner time.
+| rdp-ntlm-info: 
+|   Target_Name: WIN7
+|   NetBIOS_Domain_Name: WIN7
+|   NetBIOS_Computer_Name: WIN7
+|   DNS_Domain_Name: Win7
+|   DNS_Computer_Name: Win7
+|   Product_Version: 6.1.7601
+|_  System_Time: 2026-03-08T19:44:47+00:00
+| ssl-cert: Subject: commonName=Win7
+| Not valid before: 2026-03-03T18:15:46
+|_Not valid after:  2026-09-02T18:15:46
+49152/tcp open  msrpc          Microsoft Windows RPC
+49153/tcp open  msrpc          Microsoft Windows RPC
+49154/tcp open  msrpc          Microsoft Windows RPC
+49155/tcp open  msrpc          Microsoft Windows RPC
+49156/tcp open  msrpc          Microsoft Windows RPC
+49158/tcp open  msrpc          Microsoft Windows RPC
+Device type: general purpose
+Running: Microsoft Windows 2008|7|Vista|8.1
+OS CPE: cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_vista cpe:/o:microsoft:windows_8.1
+OS details: Microsoft Windows Vista SP2 or Windows 7 or Windows Server 2008 R2 or Windows 8.1
+Network Distance: 2 hops
+Service Info: Host: WIN7; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2026-03-08T19:44:47
+|_  start_date: 2026-03-08T19:16:24
+| smb-security-mode: 
+|   account_used: <blank>
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb-os-discovery: 
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: Win7
+|   NetBIOS computer name: WIN7\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2026-03-08T20:44:48+01:00
+|_nbstat: NetBIOS name: WIN7, NetBIOS user: <unknown>, NetBIOS MAC: bc:24:11:57:77:be (Proxmox Server Solutions GmbH)
+| smb2-security-mode: 
+|   2:1:0: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: -12m00s, deviation: 26m49s, median: -1s
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT     ADDRESS
+1   0.34 ms 10.0.30.1
+2   0.57 ms 10.0.10.10
+
+Nmap scan report for 10.0.10.30
+Host is up (0.00039s latency).
+Not shown: 994 closed tcp ports (reset)
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 2.3.5
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 10.0.30.10
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 2.3.5 - secure, fast, stable
+|_End of status
+22/tcp    open  ssh     OpenSSH 6.0p1 Debian 4+deb7u4 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 e0:57:24:81:ae:24:a0:75:bd:77:1e:2f:8c:74:3a:a2 (DSA)
+|   2048 df:6f:ad:a0:31:e7:53:9b:5e:ea:9a:0f:a3:a1:c2:c7 (RSA)
+|_  256 15:57:5b:3c:66:db:2d:8d:96:c4:44:2e:4e:91:f3:f5 (ECDSA)
+23/tcp    open  telnet  Linux telnetd
+80/tcp    open  http    Apache httpd 2.2.22 ((Debian))
+|_http-server-header: Apache/2.2.22 (Debian)
+|_http-title: Site doesn't have a title (text/html).
+111/tcp   open  rpcbind 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100024  1          33774/tcp6  status
+|   100024  1          33823/udp   status
+|   100024  1          38885/udp6  status
+|_  100024  1          55056/tcp   status
+55056/tcp open  status  1 (RPC #100024)
+Device type: general purpose
+Running: Linux 3.X
+OS CPE: cpe:/o:linux:linux_kernel:3
+OS details: Linux 3.2 - 3.16
+Network Distance: 2 hops
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 1025/tcp)
+HOP RTT     ADDRESS
+-   Hop 1 is the same as for 10.0.10.10
+2   0.54 ms 10.0.10.30
+
+Nmap scan report for 10.0.20.10
+Host is up (0.00038s latency).
+Not shown: 987 closed tcp ports (reset)
+PORT      STATE SERVICE        VERSION
+80/tcp    open  http           Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.33)
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
+| http-title: Welcome to XAMPP
+|_Requested resource was http://10.0.20.10/dashboard/
+135/tcp   open  msrpc          Microsoft Windows RPC
+139/tcp   open  netbios-ssn    Microsoft Windows netbios-ssn
+443/tcp   open  ssl/http       Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.33)
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn: 
+|_  http/1.1
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-11-10T23:48:47
+|_Not valid after:  2019-11-08T23:48:47
+| http-title: Welcome to XAMPP
+|_Requested resource was https://10.0.20.10/dashboard/
+445/tcp   open  microsoft-ds   Windows Server 2008 R2 Standard 7601 Service Pack 1 microsoft-ds
+3306/tcp  open  mysql          MariaDB 10.3.23 or earlier (unauthorized)
+3389/tcp  open  ms-wbt-server?
+| rdp-ntlm-info: 
+|   Target_Name: WEB
+|   NetBIOS_Domain_Name: WEB
+|   NetBIOS_Computer_Name: WEB
+|   DNS_Domain_Name: Web
+|   DNS_Computer_Name: Web
+|   Product_Version: 6.1.7601
+|_  System_Time: 2026-03-08T19:44:48+00:00
+|_ssl-date: 2026-03-08T19:45:00+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=Web
+| Not valid before: 2026-03-03T18:05:36
+|_Not valid after:  2026-09-02T18:05:36
+49152/tcp open  msrpc          Microsoft Windows RPC
+49153/tcp open  msrpc          Microsoft Windows RPC
+49154/tcp open  msrpc          Microsoft Windows RPC
+49155/tcp open  msrpc          Microsoft Windows RPC
+49157/tcp open  msrpc          Microsoft Windows RPC
+49158/tcp open  msrpc          Microsoft Windows RPC
+Device type: general purpose
+Running: Microsoft Windows 2008|7
+OS CPE: cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_7
+OS details: Microsoft Windows Server 2008 R2 SP1 or Windows 7 SP1
+Network Distance: 2 hops
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2026-03-08T19:44:48
+|_  start_date: 2026-03-07T10:47:58
+|_nbstat: NetBIOS name: WEB, NetBIOS user: <unknown>, NetBIOS MAC: bc:24:11:31:c5:70 (Proxmox Server Solutions GmbH)
+| smb2-security-mode: 
+|   2:1:0: 
+|_    Message signing enabled but not required
+| smb-security-mode: 
+|   account_used: <blank>
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb-os-discovery: 
+|   OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_server_2008::sp1
+|   Computer name: Web
+|   NetBIOS computer name: WEB\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2026-03-08T20:44:48+01:00
+|_clock-skew: mean: -12m00s, deviation: 26m49s, median: 0s
+
+TRACEROUTE (using port 1025/tcp)
+HOP RTT     ADDRESS
+-   Hop 1 is the same as for 10.0.10.10
+2   0.53 ms 10.0.20.10
+
+Nmap scan report for 10.0.30.1
+Host is up (0.00023s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 85:82:00:7d:76:78:2e:1f:39:01:fe:8f:34:19:07:2e (ECDSA)
+|_  256 84:d1:2c:a1:5f:86:e1:f8:98:72:fb:2f:0a:5e:32:95 (ED25519)
+53/tcp open  domain  ISC BIND 9.18.39-0ubuntu0.24.04.2 (Ubuntu Linux)
+| dns-nsid: 
+|_  bind.version: 9.18.39-0ubuntu0.24.04.2-Ubuntu
+MAC Address: BC:24:11:30:37:F4 (Proxmox Server Solutions GmbH)
+Device type: general purpose|router
+Running: Linux 4.X|5.X, MikroTik RouterOS 7.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5 cpe:/o:mikrotik:routeros:7 cpe:/o:linux:linux_kernel:5.6.3
+OS details: Linux 4.15 - 5.19, OpenWrt 21.02 (Linux 5.4), MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3)
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.23 ms 10.0.30.1
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Mar  8 20:45:17 2026 -- 4 IP addresses (4 hosts up) scanned in 114.45 seconds
