@@ -1,0 +1,91 @@
+# Nmap 7.95 scan initiated Sat Apr 25 19:51:24 2026 as: /usr/lib/nmap/nmap -A -T4 -Pn -oN nmap_A_Sn 10.0.10.10 10.0.10.30 10.0.20.10 10.0.30.1 10.0.40.20
+Nmap scan report for win7.seclab.atmedia (10.0.10.10)
+Host is up.
+All 1000 scanned ports on win7.seclab.atmedia (10.0.10.10) are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+Too many fingerprints match this host to give specific OS details
+
+TRACEROUTE (using proto 1/icmp)
+HOP RTT    ADDRESS
+1   ... 30
+
+Nmap scan report for debian.seclab.atmedia (10.0.10.30)
+Host is up.
+All 1000 scanned ports on debian.seclab.atmedia (10.0.10.30) are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+Too many fingerprints match this host to give specific OS details
+
+TRACEROUTE (using proto 1/icmp)
+HOP RTT    ADDRESS
+1   ... 30
+
+Nmap scan report for web.seclab.atmedia (10.0.20.10)
+Host is up (0.00035s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.33)
+| http-title: Welcome to XAMPP
+|_Requested resource was http://web.seclab.atmedia/dashboard/
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
+443/tcp open  ssl/http Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.33)
+| http-title: Welcome to XAMPP
+|_Requested resource was https://web.seclab.atmedia/dashboard/
+|_ssl-date: TLS randomness does not represent time
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-11-10T23:48:47
+|_Not valid after:  2019-11-08T23:48:47
+| tls-alpn: 
+|_  http/1.1
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|phone|specialized
+Running (JUST GUESSING): Microsoft Windows 2008|7|8.1|Phone|Vista (96%)
+OS CPE: cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_8.1:r1 cpe:/o:microsoft:windows cpe:/o:microsoft:windows_8 cpe:/o:microsoft:windows_vista::- cpe:/o:microsoft:windows_vista::sp1
+Aggressive OS guesses: Microsoft Windows Server 2008 R2 or Windows 7 SP1 (96%), Microsoft Windows 8.1 R1 (96%), Microsoft Windows Phone 7.5 or 8.0 (96%), Microsoft Windows Embedded Standard 7 (96%), Microsoft Windows 7 or Windows Server 2008 R2 (92%), Microsoft Windows Server 2008 or 2008 Beta 3 (92%), Microsoft Windows Server 2008 R2 or Windows 8.1 (92%), Microsoft Windows 7 Professional or Windows 8 (92%), Microsoft Windows Vista SP0 or SP1, Windows Server 2008 SP1, or Windows 7 (92%), Microsoft Windows Vista SP2, Windows 7 SP1, or Windows Server 2008 (92%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT     ADDRESS
+1   0.18 ms 10.0.30.1
+2   0.44 ms web.seclab.atmedia (10.0.20.10)
+
+Nmap scan report for manager.seclab.atmedia (10.0.40.20)
+Host is up.
+All 1000 scanned ports on manager.seclab.atmedia (10.0.40.20) are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+Too many fingerprints match this host to give specific OS details
+
+TRACEROUTE (using proto 1/icmp)
+HOP RTT    ADDRESS
+1   ... 30
+
+Nmap scan report for 10.0.30.1
+Host is up (0.00021s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 9.7 (protocol 2.0)
+53/tcp  open  domain   Unbound
+80/tcp  open  http     nginx
+|_http-title: Did not follow redirect to https://10.0.30.1/
+443/tcp open  ssl/http nginx
+|_http-title: pfSense - Login
+| ssl-cert: Subject: commonName=pfSense-69c5b0b1db5e7/organizationName=pfSense GUI default Self-Signed Certificate
+| Subject Alternative Name: DNS:pfSense-69c5b0b1db5e7
+| Not valid before: 2026-03-26T22:18:26
+|_Not valid after:  2027-04-28T22:18:26
+MAC Address: BC:24:11:AF:D4:C5 (Proxmox Server Solutions GmbH)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): FreeBSD 11.X (91%)
+OS CPE: cpe:/o:freebsd:freebsd:11.2
+Aggressive OS guesses: FreeBSD 11.2-RELEASE (91%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.21 ms 10.0.30.1
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Apr 25 19:54:49 2026 -- 5 IP addresses (5 hosts up) scanned in 205.01 seconds
